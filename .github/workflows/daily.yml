@@ -1,9 +1,9 @@
-name: Daily LeetCode Question
+name: Daily Neetcode 150 Problem
 
 on:
   schedule:
-    - cron: "0 21 * * *"  # 4:00 PM EST (UTC-4) — adjust as needed
-  workflow_dispatch:        # allows manual trigger from GitHub UI
+    - cron: "0 14 * * 1-5"   # 9:00 AM EST (UTC-5) · Monday–Friday
+  workflow_dispatch:           # manual trigger from GitHub UI
 
 jobs:
   post:
@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Post daily question
+      - name: Post daily problem
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python main.py
